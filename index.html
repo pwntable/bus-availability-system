@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTHM Bus Availability</title>
+  <meta name="description" content="UTHM Smart Bus Schedule Website showing real-time upcoming trips.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-summary" id="topSummary">
+    <div class="summary-container">
+      <div class="time-display">
+        <i class="fa-regular fa-clock"></i> <span id="currentTime">--:--:--</span>
+      </div>
+      <div class="day-display">
+        <i class="fa-regular fa-calendar-days"></i> <span id="currentDate">-----</span> &bull; 
+        <i class="fa-solid fa-book-open"></i> <span id="currentGroup">-----</span>
+      </div>
+      <div class="overall-status" id="overallStatus">Calculating service status...</div>
+      <div class="next-overall" id="nextOverall"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="route-tabs" id="routeTabs">
+        <button class="route-tab active" data-route="induk"><i class="fa-solid fa-building-columns"></i> Kampus Induk</button>
+        <button class="route-tab" data-route="pagoh"><i class="fa-solid fa-tree-city"></i> Kampus Pagoh</button>
+        <button class="route-tab" data-route="bandar"><i class="fa-solid fa-city"></i> Kampus Bandar</button>
+      </div>
+      <div class="controls-actions">
+        <div class="view-toggles">
+          <button class="toggle-btn active" id="btnLiveView"><i class="fa-solid fa-bolt"></i> Live View</button>
+          <button class="toggle-btn" id="btnFullSchedule"><i class="fa-solid fa-table-list"></i> Full Schedule</button>
+        </div>
+        <button class="preview-btn" id="btnPreviewSchedule"><i class="fa-regular fa-image"></i> Poster</button>
+      </div>
+    </section>
+
+    <!-- Modal for Official Poster -->
+    <div id="imageModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="Official Schedule">
+      </div>
+    </div>
+
+    <!-- Edge State Message -->
+    <div class="edge-state-msg" id="edgeStateMsg" style="display: none;"></div>
+
+    <section class="bus-grid" id="busGrid">
+      <!-- Bus Cards will be generated here -->
+    </section>
+
+    <section class="schedule-table-section" id="scheduleTableSection" style="display: none;">
+      <h2><i class="fa-solid fa-route"></i> Full Timetable</h2>
+      <div class="table-responsive">
+        <table id="fullScheduleTable">
+          <thead>
+            <tr>
+              <th>Bus</th>
+              <th>Departure Times</th>
+            </tr>
+          </thead>
+          <tbody id="fullScheduleBody">
+            <!-- Table rows will be generated here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
