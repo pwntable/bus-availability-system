@@ -356,8 +356,10 @@ function appTick() {
     // If times are exactly the same, sort by the bus sequence (e.g. Bas 1 before Bas 2).
     allBuses.sort((a, b) => {
       const getSortTime = (bus) => {
-        if (bus.activeTrip) return bus.activeTrip.date.getTime();
+        // Sort strictly by the displayed next trip time if available
         if (bus.nextTripDate) return bus.nextTripDate.getTime();
+        // Fallback to active trip only if there are no future trips left today
+        if (bus.activeTrip) return bus.activeTrip.date.getTime();
         return Infinity;
       };
       
