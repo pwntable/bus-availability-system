@@ -351,6 +351,16 @@ function appTick() {
     allBuses = Object.keys(currentSchedule).map(busName => 
       getBusData(busName, currentSchedule[busName], now)
     );
+
+    // Sort active and upcoming buses first, based on distance in time
+    allBuses.sort((a, b) => {
+      const getSortTime = (bus) => {
+        if (bus.activeTrip) return bus.activeTrip.date.getTime();
+        if (bus.nextTripDate) return bus.nextTripDate.getTime();
+        return Infinity;
+      };
+      return getSortTime(a) - getSortTime(b);
+    });
   }
 
   updateTopSummary(now, scheduleGroup, allBuses);
