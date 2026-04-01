@@ -352,14 +352,21 @@ function appTick() {
       getBusData(busName, currentSchedule[busName], now)
     );
 
-    // Sort active and upcoming buses first, based on distance in time
+    // Sort active and upcoming buses first, based on distance in time.
+    // If times are exactly the same, sort by the bus sequence (e.g. Bas 1 before Bas 2).
     allBuses.sort((a, b) => {
       const getSortTime = (bus) => {
         if (bus.activeTrip) return bus.activeTrip.date.getTime();
         if (bus.nextTripDate) return bus.nextTripDate.getTime();
         return Infinity;
       };
-      return getSortTime(a) - getSortTime(b);
+      
+      const timeDiff = getSortTime(a) - getSortTime(b);
+      if (timeDiff === 0) {
+        // Fallback to sorting by bus name (Bas 1, Bas 2, etc.)
+        return a.busName.localeCompare(b.busName, undefined, { numeric: true });
+      }
+      return timeDiff;
     });
   }
 
