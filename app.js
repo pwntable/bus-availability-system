@@ -63,7 +63,34 @@ let currentRoute = 'induk'; // 'induk', 'pagoh', 'bandar'
 // --- Utility Functions ---
 
 function getNow() {
-  return new Date();
+  const actualNow = new Date();
+  const datePicker = document.getElementById('datePicker');
+  if (!datePicker) return actualNow;
+  
+  const pickerVal = datePicker.value;
+  if (pickerVal) {
+    const [year, month, day] = pickerVal.split('-');
+    const fakeNow = new Date(year, month - 1, day);
+    
+    // Check if picked date is today
+    const isToday = fakeNow.getFullYear() === actualNow.getFullYear() &&
+                    fakeNow.getMonth() === actualNow.getMonth() &&
+                    fakeNow.getDate() === actualNow.getDate();
+                    
+    if (isToday) {
+      return actualNow; // Return precise current time
+    }
+    
+    // If not today, show end state for past dates, start state for future dates
+    if (fakeNow > actualNow) {
+      fakeNow.setHours(0, 0, 0, 0); 
+    } else {
+      fakeNow.setHours(23, 59, 59, 999); 
+    }
+    return fakeNow;
+  }
+  
+  return actualNow;
 }
 
 /** Get schedule group based on current day */
@@ -457,5 +484,16 @@ document.getElementById('closeAboutModal').addEventListener('click', () => {
 });
 
 // --- Initialization ---
+// Initialize date picker to today
+const datePickerEl = document.getElementById('datePicker');
+if (datePickerEl) {
+  const todayDateStr = new Date().toLocaleDateString('en-CA'); // 'YYYY-MM-DD'
+  datePickerEl.value = todayDateStr;
+  
+  datePickerEl.addEventListener('change', () => {
+    appTick();
+  });
+}
+
 appTick();
 setInterval(appTick, 1000); // Update every second to keep clock smooth

@@ -221,6 +221,35 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+/* Date Picker */
+.date-picker-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--neutral);
+  gap: 0.5rem;
+}
+
+.date-picker-label {
+  color: var(--primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.date-picker-input {
+  border: none;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--text-dark);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
 /* Modal */
 .modal {
   display: none; 
