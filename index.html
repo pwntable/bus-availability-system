@@ -48,6 +48,37 @@
       </div>
     </div>
 
+    <!-- Modal for About -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content about-content">
+        <span class="close-modal" id="closeAboutModal">&times;</span>
+        <h2><i class="fa-solid fa-circle-info"></i> About This System</h2>
+        
+        <div class="about-section">
+          <h3><i class="fa-solid fa-bullseye"></i> Goal</h3>
+          <p>This system was built to make it easier for students to access and monitor real-time bus availability. By digitizing the schedule, it eliminates the need to download multiple PDF versions, ensuring everyone always has access to the single, most up-to-date timetable without any confusion.</p>
+        </div>
+
+        <div class="about-section announcement-section">
+          <h3><i class="fa-solid fa-bullhorn"></i> Official Announcement</h3>
+          <p>According to the <strong>Majlis Perwakilan Pelajar (MPP)</strong>, this bus schedule is valid from:<br><strong>30 Mac 2026 hingga 21 Jun 2026</strong>.</p>
+        </div>
+
+        <div class="about-section credit-section">
+          <h3><i class="fa-solid fa-code"></i> Credits</h3>
+          <p>Developed with ❤️ by <strong>Khairul Ibad (pwntable)</strong></p>
+          <div class="social-links">
+            <a href="https://github.com/pwntable" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/khairul-ibad/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Edge State Message -->
     <div class="edge-state-msg" id="edgeStateMsg" style="display: none;"></div>
 
@@ -72,6 +103,17 @@
       </div>
     </section>
   </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div class="footer-credits">
+        <span>Created by Khairul Ibad (pwntable)</span>
+        <a href="https://github.com/pwntable" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/khairul-ibad/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <button class="text-btn" id="btnAboutApp">About this system</button>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>

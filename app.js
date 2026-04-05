@@ -441,6 +441,19 @@ window.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
   }
+  if (e.target === aboutModal) {
+    aboutModal.style.display = 'none';
+  }
+});
+
+const aboutModal = document.getElementById('aboutModal');
+
+document.getElementById('btnAboutApp').addEventListener('click', () => {
+  aboutModal.style.display = 'block';
+});
+
+document.getElementById('closeAboutModal').addEventListener('click', () => {
+  aboutModal.style.display = 'none';
 });
 
 // --- Initialization ---

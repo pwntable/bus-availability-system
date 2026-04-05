@@ -497,3 +497,127 @@ td.bus-table-name {
   color: #fff;
   font-weight: 700;
 }
+
+/* Footer */
+.app-footer {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid var(--bg-light);
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-credits {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.footer-credits a {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-credits a:hover {
+  color: var(--primary-accent);
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.github-btn {
+  background-color: #333;
+}
+
+.github-btn:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.linkedin-btn {
+  background-color: #0077b5;
+}
+
+.linkedin-btn:hover {
+  background-color: #005582;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--secondary-dark);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.text-btn:hover {
+  color: var(--primary-accent);
+}
+
+/* About Modal Styling */
+.about-content h2 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.about-section {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--bg-light);
+}
+
+.about-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.about-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.about-section p {
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.announcement-section p strong {
+  color: var(--primary-accent);
+}
+
