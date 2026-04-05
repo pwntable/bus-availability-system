@@ -295,6 +295,8 @@ function renderFullSchedule(scheduleData) {
   const tbody = document.getElementById('fullScheduleBody');
   tbody.innerHTML = '';
   
+  document.getElementById('edgeStateMsg').style.display = 'none';
+  
   if (!scheduleData || Object.keys(scheduleData).length === 0) {
     tbody.innerHTML = '<tr><td colspan="2">No data available.</td></tr>';
     return;
